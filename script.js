@@ -1,23 +1,22 @@
 //your JS code here. If required.
 document.addEventListener('DOMContentLoaded', function() {
-  // Step 1: Add event listener to the 'Save' button
   const saveButton = document.querySelector('input[type="submit"]');
   saveButton.addEventListener('click', function(event) {
     event.preventDefault(); // Prevent form submission
 
-    // Get values from form inputs
+  
     const fontSize = document.getElementById('fontsize').value + 'px';
     const fontColor = document.getElementById('fontcolor').value;
 
-    // Save preferences in cookies
+  
     setCookie('fontSize', fontSize, 30); // Expires in 30 days
     setCookie('fontColor', fontColor, 30); // Expires in 30 days
 
-    // Apply preferences immediately
+    
     applyPreferences();
   });
 
-  // Step 3: Apply saved preferences on page load
+  
   function applyPreferences() {
     const savedFontSize = getCookie('fontSize');
     const savedFontColor = getCookie('fontColor');
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
   }
 
-  // Function to get cookie value by name
+  
   function getCookie(name) {
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) {
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return null;
   }
 
-  // Step 4: Update CSS custom properties on input change
+  
   const fontSizeInput = document.getElementById('fontsize');
   const fontColorInput = document.getElementById('fontcolor');
 
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.documentElement.style.setProperty('--fontcolor', this.value);
   });
 
-  // Step 2: Check and apply preferences on initial page load
+  
   applyPreferences();
 });
 
