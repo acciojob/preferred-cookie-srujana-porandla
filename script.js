@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const fontSize = document.getElementById('fontsize').value + 'px';
     const fontColor = document.getElementById('fontcolor').value;
 
-  
+    console.log(document.cookie);
     setCookie('fontSize', fontSize, 30); // Expires in 30 days
-    setCookie('fontColor', fontColor, 30); // Expires in 30 days
+    setCookie('fontColor', fontColor, 30); 
 
     
     applyPreferences();
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function setCookie(name, value, days) {
     const expires = new Date();
     expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()}`;
   }
 
   
