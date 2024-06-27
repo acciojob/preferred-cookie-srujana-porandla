@@ -1,6 +1,6 @@
 //your JS code here. If required.
 document.addEventListener('DOMContentLoaded', function() {
-	event.preventDefault()
+	
   const saveButton = document.querySelector('input[type="submit"]');
   saveButton.addEventListener('click', function(event) {
     event.preventDefault(); // Prevent form submission
